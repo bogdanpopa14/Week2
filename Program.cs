@@ -19,7 +19,7 @@ namespace Tema_4
             //InsertElement();
             //MaxMinVect();
             //ElementeComune();
-            Array2NewArr();
+            //Array2NewArr();
             Console.ReadLine();
 
 
