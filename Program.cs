@@ -20,6 +20,7 @@ namespace Tema_4
             //MaxMinVect();
             //ElementeComune();
             //Array2NewArr();
+            DeleteDupl();
             Console.ReadLine();
 
 
@@ -408,7 +409,49 @@ namespace Tema_4
         }
 
 
+        private static void DeleteDupl()
+        {
+            int i, j, n, z = 0;
+            Console.WriteLine("introduceti marimea vect: ");
+            n = Convert.ToInt32(Console.ReadLine());
+            List<int> a = new List<int>(n);
+            //List<int> b = new List<int>(1000);   
+            int[] b = new int[n];
 
+            for ( i = 0; i < n; i++)
+            {
+                Console.WriteLine("a[{0}]=", i);
+                a.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+
+            for ( i = 0; i < a.Count; i++)
+            {
+                for ( j = i+1; j < a.Count; j++)
+                {
+                    if(a[i]==a[j])
+                    {
+                        b[z] = j;
+                        z++;
+                    }
+
+                }
+                
+
+            }
+
+            for ( i = b.Length; i >= 0; i++)
+            {
+                a.RemoveAt(b[i]);
+
+            }
+            Console.WriteLine("vectorul fara dubluri este: ");
+            for ( i = 0; i < a.Count; i++)
+            {
+                Console.WriteLine(a[i]);
+
+            }
+
+        }
 
 
 
