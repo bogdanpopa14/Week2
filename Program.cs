@@ -411,7 +411,7 @@ namespace Tema_4
 
         private static void DeleteDupl()
         {
-            int i, j, n, z = 0;
+            int i, j, n, z = 0, x = 0;
             Console.WriteLine("introduceti marimea vect: ");
             n = Convert.ToInt32(Console.ReadLine());
             List<int> a = new List<int>(n);
@@ -422,32 +422,42 @@ namespace Tema_4
             {
                 Console.WriteLine("a[{0}]=", i);
                 a.Add(Convert.ToInt32(Console.ReadLine()));
+                b[i] = -1;
             }
 
             for ( i = 0; i < a.Count; i++)
             {
+                z = 1;
                 for ( j = i+1; j < a.Count; j++)
                 {
+                    
                     if(a[i]==a[j])
                     {
-                        b[z] = j;
+                        b[j] = 0;
                         z++;
                     }
 
+                }
+                if(b[i]!=0)
+                {
+                    b[i] = z;
                 }
                 
 
             }
 
-            for ( i = b.Length; i >= 0; i++)
-            {
-                a.RemoveAt(b[i]);
 
-            }
-            Console.WriteLine("vectorul fara dubluri este: ");
             for ( i = 0; i < a.Count; i++)
             {
-                Console.WriteLine(a[i]);
+                if(b[i]!=0)
+                {
+                    a[x] = a[i];
+                    x++;
+                }
+            }
+            for ( i = 0; i < x; i++)
+            {
+                Console.WriteLine("a[{0}]={1}",i,a[i]);
 
             }
 
